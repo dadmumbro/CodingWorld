@@ -128,7 +128,7 @@ class BinarySearchTree():
         return True
       elif self.left_child and self.right_child is None and self == parent.left_child:
         parent.left_child = self.left_child
-        self.clear_node()
+        return True
       elif self.left_child and self.right_child is None and self == parent.right_child:
           parent.right_child = self.left_child
           return True
