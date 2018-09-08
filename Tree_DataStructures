@@ -76,3 +76,20 @@ fnode = cnode.right
 #print(root.right.data)
 #print(root.postorder())
 print(root.bfs())
+
+
+class BinarySearchTree():
+  def __init__(self,value):
+    self.data = value
+    self.left = None
+    self.right = None
+
+  def insert(self,value):
+    if value <= self.left.data and self.left:
+      self.left.insert(value)
+    elif value <= self.left.data:
+      self.left = BinarySearchTree(value)
+    elif value > self.right.data and self.right:
+      self.right.insert(value)
+    else:
+      self.right = BinarySearchTree(value)
