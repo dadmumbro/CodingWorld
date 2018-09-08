@@ -75,7 +75,7 @@ fnode = cnode.right
 #print(enode.data)
 #print(root.right.data)
 #print(root.postorder())
-print(root.bfs())
+#print(root.bfs())
 
 
 class BinarySearchTree():
@@ -85,11 +85,34 @@ class BinarySearchTree():
     self.right = None
 
   def insert(self,value):
-    if value <= self.left.data and self.left:
+    if value <= self.data and self.left:
       self.left.insert(value)
-    elif value <= self.left.data:
+    elif value <= self.data:
       self.left = BinarySearchTree(value)
-    elif value > self.right.data and self.right:
+    elif value > self.data and self.right:
       self.right.insert(value)
     else:
       self.right = BinarySearchTree(value)
+
+  def finder(self,value):
+    if value == self.data:
+      print("found") #"found"
+    elif (value <= self.data) and (self.left):
+      self.left.finder(value)
+    elif (value >= self.data) and (self.right):
+      self.right.finder(value)
+    else:
+      print("not found")
+
+broot = BinarySearchTree(50)
+broot.insert(76)
+broot.insert(21)
+broot.insert(4)
+broot.insert(32)
+broot.insert(100)
+broot.insert(64)
+node1 = broot.left
+node2 = broot.right
+print(broot.data)
+print(broot.finder(100))  #found
+print(broot.finder(65)) #notfound
