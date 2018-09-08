@@ -26,5 +26,6 @@ def minsum(arr):
 
   return min_sum
 
+def minsortnum(arr):
 
 minsum([-4,3,2,-1])
