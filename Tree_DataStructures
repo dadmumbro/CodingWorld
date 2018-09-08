@@ -1,3 +1,5 @@
+from queue import *
+
 class BinaryTree():
   def __init__(self, value):
     self.data = value
@@ -41,6 +43,19 @@ class BinaryTree():
                   self.right.postorder()
                 print(self.data)
 
+  def bfs(self):
+    queue = Queue()
+    queue.put(self)
+
+    while not queue.empty():
+      first_node = queue.get()
+      print(first_node.data)
+
+      if first_node.left:
+        queue.put(first_node.left)
+      if first_node.right:
+        queue.put(first_node.right)
+
 
 root = BinaryTree('a')
 bnode = BinaryTree('b')
@@ -59,4 +74,5 @@ fnode = cnode.right
 #print(cnode.data)
 #print(enode.data)
 #print(root.right.data)
-print(root.postorder())
+#print(root.postorder())
+print(root.bfs())
