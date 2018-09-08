@@ -104,6 +104,50 @@ class BinarySearchTree():
     else:
       print("not found")
 
+  def find_min(self):
+    if (self.left):
+      self.left.find_min()
+    else:
+      print(self.data)
+    return None
+
+  def find_max(self):
+    if (self.right):
+      self.right.find_max()
+    else:
+      print(self.data)
+    return None
+
+  def delete(self,value, parent):
+    if value ==self.data:
+      if !(self.left) and !(self.right) and (self == parent.left):
+        parent.left = None
+        return True
+      elif !(self.left) and !(self.right) and (self == parent.right):
+        parent.right = None
+        return True
+      elif self.left_child and self.right_child is None and self == parent.left_child:
+        parent.left_child = self.left_child
+        self.clear_node()
+      elif self.left_child and self.right_child is None and self == parent.right_child:
+          parent.right_child = self.left_child
+          return True
+      elif self.right_child and self.left_child is None and self == parent.left_child:
+          parent.left_child = self.right_child
+          return True
+      elif self.right_child and self.left_child is None and self == parent.right_child:
+          parent.right_child = self.right_child
+          return True
+      else:
+          self.value = self.right_child.find_minimum_value()
+          self.right_child.delete(self.value, self)
+    elif (value <= self.data) and (self.left):
+      self.left.finder(value,self)
+    elif (value >= self.data) and (self.right):
+      self.right.finder(value,self)
+    else:
+      print("not found cannot delete value")
+
 broot = BinarySearchTree(50)
 broot.insert(76)
 broot.insert(21)
@@ -113,6 +157,9 @@ broot.insert(100)
 broot.insert(64)
 node1 = broot.left
 node2 = broot.right
-print(broot.data)
-print(broot.finder(100))  #found
-print(broot.finder(65)) #notfound
+#print(broot.data)
+#print(broot.finder(100))  #found
+#print(broot.finder(65)) #notfound
+#print(broot.find_max())
+#print(broot.find_min())
+print(broot.delete(53))
