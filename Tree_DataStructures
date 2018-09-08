@@ -20,6 +20,27 @@ class BinaryTree():
         tempnode.right = self.right
         self.right = tempnode
 
+  def preorder(self):
+    print(self.data)
+    if self.left:
+      self.left.preorder()
+    if self.right:
+      self.right.preorder()
+
+  def inorder(self):
+        if self.left:
+          self.left.inorder()
+        print(self.data)
+        if self.right:
+          self.right.inorder()
+
+  def postorder(self):
+                if self.left:
+                  self.left.postorder()
+                if self.right:
+                  self.right.postorder()
+                print(self.data)
+
 
 root = BinaryTree('a')
 bnode = BinaryTree('b')
@@ -34,7 +55,8 @@ cnode.insert_left('e')
 cnode.insert_right('f')
 enode = cnode.left
 fnode = cnode.right
-print(root.left.data)
-print(cnode.data)
-print(enode.data)
-print(root.right.data)
+#print(root.left.data)
+#print(cnode.data)
+#print(enode.data)
+#print(root.right.data)
+print(root.postorder())
