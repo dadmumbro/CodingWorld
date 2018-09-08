@@ -1,0 +1,40 @@
+class BinaryTree():
+  def __init__(self, value):
+    self.data = value
+    self.left = None
+    self.right = None
+
+  def insert_left(self,value):
+    if self.left == None:
+      self.left = BinaryTree(value)
+    else:
+      tempnode = BinaryTree(value)
+      tempnode.left = self.left
+      self.left = tempnode
+
+  def insert_right(self,value):
+      if self.right ==None:
+        self.right = BinaryTree(value)
+      else:
+        tempnode = BinaryTree(value)
+        tempnode.right = self.right
+        self.right = tempnode
+
+
+root = BinaryTree('a')
+bnode = BinaryTree('b')
+cnode = BinaryTree('c')
+dnode = BinaryTree('d')
+#enode = BinaryTree('e')
+#fnode = BinaryTree('f')
+root.left = bnode
+root.right = cnode
+bnode.right = dnode
+cnode.insert_left('e')
+cnode.insert_right('f')
+enode = cnode.left
+fnode = cnode.right
+print(root.left.data)
+print(cnode.data)
+print(enode.data)
+print(root.right.data)
