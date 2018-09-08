@@ -1,0 +1,30 @@
+def searcharr(k,l,r,value):
+  if l < r:
+    mid = len(k)//2
+    if k[mid] == value:
+      print("value found") #"value found"
+    if value < k[mid]:
+      searcharr(k[:mid], l,mid,value)
+    elif value > k[mid]:
+      searcharr(k[mid:], mid, r,value)
+  else:
+    print("not found")
+
+a = list(range(100))
+searcharr(a,0,99,56.5)
+
+
+def minsum(arr):
+  min_sum = arr[0] + arr[1]
+  if (len(arr)<2):
+    return("invalid length to find min sum")
+  for i in range(len(arr)):
+    for j in range(len(arr)):
+      sum = arr[i] + arr[j]
+      if (abs(sum)< abs(min_sum)):
+        min_sum = sum
+
+  return min_sum
+
+
+minsum([-4,3,2,-1])
