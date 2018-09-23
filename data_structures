@@ -26,9 +26,41 @@ class stack():
 
 
 a = stack()
+a.pop()
 a.push(10)
 a.push(15)
 a.push(23)
 a.push(1)
 # a.print()
 a.pop()
+print("############")
+
+
+#Queue datastructure
+
+class queue():
+ def __init__(self):
+  self.f,self.l = -1,-1
+  self.a = []
+
+ def push(self,k):
+  self.l +=1
+  self.a.append(k)
+  print(self.a)
+
+def first(self):
+ if self.f ==-1:
+  print("empty queue")
+ else:
+  temp = self.a[self.f]
+  del self.a[self.f]
+  #self.f +=1
+  print(self.a, temp)
+
+def print(self):
+ while self.f != self.l:
+  self.first()
+
+
+a = queue()
+a.push(10)
