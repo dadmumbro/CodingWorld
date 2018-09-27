@@ -101,3 +101,45 @@ def qsort(a, s,e):
 # b = sorted(a)
 # print(len(b))
 qsort([6,5,4,3,1,2],0,5)
+
+
+#You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
+
+#You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+#Example:
+#
+#Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
+#Output: 7 -> 0 -> 8
+#Explanation: 342 + 465 = 807.
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def addTwoNumbers(self, l1, l2):
+        """
+        :type l1: ListNode
+        :type l2: ListNode
+        :rtype: ListNode
+        """
+        temp,temp1 = l1,l2
+        one,two = "",""
+        while True:
+            if temp.next == None:
+                one = str(temp.val) + one 
+                break
+            one = str(temp.val) + one
+            temp = temp.next
+            
+        while True:
+            if temp1.next == None:
+                two = str(temp1.val) + two 
+                break
+            two = str(temp1.val) + two 
+            temp1 = temp1.next
+        three = str(int(one) + int(two))
+        four = (list(reversed(three)))
+        return list(map(int, four))
