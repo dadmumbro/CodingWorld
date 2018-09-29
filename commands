@@ -1,0 +1,42 @@
+git --version
+git config --list
+git config --global user.name ""
+git config --global user.email ""
+
+
+#################
+git init
+git status
+
+touch .gitignore
+vi .gitignore #add files to ignore files
+
+#to add all the files to staging 
+git add -A
+git add <filename>
+
+#to remove from staging area to local repo
+git reset <filename>
+
+#to commit the files available  in staging area
+git commit -m "<message>"
+
+git log
+
+
+#clone the remote repo
+git clone <url> <where to clone>
+
+git remote -v #to see the version of remote repo
+git branch -a #to see the branch of repo
+
+
+git diff #to see the changes
+
+git add -A #to stage it	
+git commit "message" #to commit locally
+
+
+#to push to remote repo
+git pull origin master
+git push origin master 
